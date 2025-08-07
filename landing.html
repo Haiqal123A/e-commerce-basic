@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartThink Landing</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#0077cc',secondary:'#ff4500'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            min-height: 100vh;
+        }
+    </style>
+
+</head>
+<body class="bg-white">
+    <!-- Hero Section -->
+    <section class="relative w-full overflow-hidden" style="background-image: url('https://readdy.ai/api/search-image?query=modern%2520laptop%2520with%2520blue%2520gradient%2520background%252C%2520professional%2520high-tech%2520appearance%252C%2520clean%2520design%252C%2520with%2520empty%2520space%2520on%2520the%2520left%2520side%2520for%2520text%252C%2520high%2520quality%2520product%2520photography%252C%2520blue%2520color%2520scheme%252C%2520minimalist%2520style%252C%2520technology%2520concept&width=1600&height=600&seq=laptop001&orientation=landscape'); background-size: cover; background-position: center right;">
+        <div class="absolute inset-0 bg-gradient-to-r from-primary/90 to-transparent"></div>
+        <div class="container mx-auto px-6 py-20 relative z-10">
+            <div class="w-full md:w-1/2 text-white">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Laptop Premium Untuk Kebutuhan Anda</h1>
+                <p class="text-lg mb-8">Temukan berbagai laptop terbaik dengan teknologi unggulan dan performa tinggi untuk produktivitas maksimal.</p>
+                <div class="flex flex-wrap gap-4">
+
+                     <a href="login.html">
+                    Login <i class="ri-arrow-right-line ml-2"></i>
+                    
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Product Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="w-full md:w-1/2">
+                    <img src="https://readdy.ai/api/search-image?query=collection%2520of%2520premium%2520laptops%2520in%2520red%2520and%2520black%2520color%2520scheme%252C%2520modern%2520design%252C%2520arranged%2520in%2520a%2520stylish%2520composition%252C%2520high-end%2520technology%252C%2520professional%2520product%2520photography%252C%2520clean%2520background%252C%2520sharp%2520details&width=600&height=400&seq=laptop002&orientation=landscape" alt="Premium Laptops Collection" class="rounded-lg w-full h-auto object-cover shadow-lg">
+                </div>
+                <div class="w-full md:w-1/2">
+                    <h2 class="text-4xl font-bold mb-4 text-gray-900">Order Your Favourite Laptop</h2>
+                    <p class="text-gray-600 text-lg">True coffee lovers know that happiness is in the perfect cup of coffee.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Recommendations -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h3 class="text-2xl font-semibold mb-8 text-gray-900">Rekomendasi SmartThink</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Product 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:shadow-lg hover:-translate-y-1">
+                    <div class="h-48 overflow-hidden">
+                        <img src="laptop1.jpg" alt="Laptop Asus Swift7" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-semibold mb-2">Laptop Asus Swift7 RGB</h4>
+                        <p class="text-gray-500 mb-4">Intel Core i9, 32GB RAM, 1TB SSD</p>
+                        <p class="text-primary font-bold">Rp 20.500.000</p>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:shadow-lg hover:-translate-y-1">
+                    <div class="h-48 overflow-hidden">
+                        <img src="laptop2.jpg" alt="Laptop Asus Ultra" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-semibold mb-2">Laptop Asus Ultra Gaming</h4>
+                        <p class="text-gray-500 mb-4">AMD Ryzen 9, 16GB RAM, 512GB SSD</p>
+                        <p class="text-primary font-bold">Rp 18.950.000</p>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:shadow-lg hover:-translate-y-1">
+                    <div class="h-48 overflow-hidden">
+                        <img src="laptop3.jpg" alt="Laptop Asus Swift5" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-semibold mb-2">Laptop Asus Swift5 Pro</h4>
+                        <p class="text-gray-500 mb-4">Intel Core i7, 16GB RAM, 512GB SSD</p>
+                        <p class="text-primary font-bold">Rp 15.750.000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Luxury Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="w-full md:w-1/2 grid grid-cols-2 gap-4">
+                    <img src="https://readdy.ai/api/search-image?query=luxury%2520laptop%2520with%2520RGB%2520lighting%2520in%2520dark%2520environment%252C%2520premium%2520gaming%2520setup%252C%2520high-end%2520technology%252C%2520professional%2520product%2520photography&width=300&height=200&seq=laptop006&orientation=landscape" alt="Luxury Laptop 1" class="rounded-lg w-full h-40 object-cover shadow-md">
+                    <img src="https://readdy.ai/api/search-image?query=premium%2520laptop%2520detail%2520shot%252C%2520close-up%2520of%2520keyboard%2520with%2520RGB%2520lighting%252C%2520high-end%2520technology%252C%2520professional%2520macro%2520photography&width=300&height=200&seq=laptop007&orientation=landscape" alt="Luxury Laptop 2" class="rounded-lg w-full h-40 object-cover shadow-md">
+                    <img src="https://readdy.ai/api/search-image?query=ultra-thin%2520laptop%2520profile%2520view%252C%2520premium%2520design%252C%2520sleek%2520aluminum%2520body%252C%2520professional%2520product%2520photography%252C%2520minimalist%2520style&width=300&height=200&seq=laptop008&orientation=landscape" alt="Luxury Laptop 3" class="rounded-lg w-full h-40 object-cover shadow-md">
+                    <img src="https://readdy.ai/api/search-image?query=premium%2520laptop%2520screen%2520display%2520with%2520vibrant%2520colors%252C%2520high-resolution%2520panel%252C%2520professional%2520product%2520photography%252C%2520technology%2520showcase&width=300&height=200&seq=laptop009&orientation=landscape" alt="Luxury Laptop 4" class="rounded-lg w-full h-40 object-cover shadow-md">
+                </div>
+                <div class="w-full md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-4 text-gray-900">Luxury and special laptops only at SmartThink</h2>
+                    <p class="text-gray-600 text-lg mb-6">The food from pain coffee is no less delicious than other restaurants. Try it immediately!!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 py-16">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between gap-12">
+                <div class="w-full md:w-1/2">
+                    <div class="mb-6">
+                        <h3 class="font-['Pacifico'] text-3xl text-primary mb-2">SmartThink</h3>
+                    </div>
+                    <p class="text-gray-600 max-w-md mb-6">
+                        Now is the perfect time to enjoy quality coffee and a pleasant atmosphere in our café. We invite you to enjoy a relaxing evening with delicious drinks and food in our café.
+                    </p>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <h3 class="text-2xl font-bold mb-6 text-gray-900">Contact SmartThink</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 flex items-center justify-center text-primary">
+                                <i class="ri-mail-line ri-lg"></i>
+                            </div>
+                            <span class="text-gray-600">haiqalrachmatsyarief@gmail.com</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 flex items-center justify-center text-primary">
+                                <i class="ri-phone-line ri-lg"></i>
+                            </div>
+                            <span class="text-gray-600">+6285716404046</span>
+                        </div>
+                        <div class="flex gap-4 mt-6">
+                            <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-200 rounded-full text-gray-700 hover:bg-primary hover:text-white transition">
+                                <i class="ri-facebook-fill ri-lg"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-200 rounded-full text-gray-700 hover:bg-primary hover:text-white transition">
+                                <i class="ri-google-fill ri-lg"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-200 rounded-full text-gray-700 hover:bg-primary hover:text-white transition">
+                                <i class="ri-twitter-x-fill ri-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 mt-12 pt-8 text-center text-gray-500">
+                <p>Copyright © 2024 SmartThink</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

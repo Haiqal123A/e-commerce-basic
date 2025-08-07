@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SmartTech - Online Shopping</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#4CAF50", secondary: "#2E7D32" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      .product-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+      .product-card {
+          transition: all 0.3s ease;
+      }
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+      }
+    
+    </style>
+  </head>
+  <body class="bg-gray-50z min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+      <div class="container mx-auto px-4 py-3">
+        <div class="flex items-center justify-between">
+          <a href="#" class="text-2xl font-['Pacifico'] text-primary"
+            >SmartTech</a
+          >
+
+          <div class="relative flex-1 max-w-xl mx-8">
+            <div class="relative">
+              <input
+                type="text"
+                placeholder="Search products, brands or categories..."
+                class="w-full py-2 pl-4 pr-10 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary text-sm"
+              />
+              <button
+                class="absolute right-0 top-0 h-full px-3 flex items-center justify-center text-gray-500"
+              >
+                <i class="ri-search-line text-lg"></i>
+              </button>
+            </div>
+          </div>
+
+         
+          <div class="flex items-center space-x-4">
+            <div
+              class="relative w-8 h-8 flex items-center justify-center cursor-pointer"
+            >
+              <a>
+              <a href="profil.html" class="ri-user-line text-xl text-gray-700"></a>
+            </div>
+            <div
+              id="cart-icon"
+              class="relative w-8 h-8 flex items-center justify-center cursor-pointer"
+            >
+              <i class="ri-shopping-cart-2-line text-xl text-gray-700"></i>
+              <span
+                id="cart-count"
+                class="absolute -top-1 -right-1 bg-primary text-white text-xs w-5 h-5 flex items-center justify-center rounded-full"
+                >0</span
+              >
+            </div>
+          </div>
+        </div>
+
+      
+      </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section
+      class="relative overflow-hidden"
+      style="background-image: url('https://readdy.ai/api/search-image?query=modern%20tech%20store%20banner%20with%20vibrant%20yellow%20and%20orange%20gradient%20background%2C%20abstract%20shapes%2C%20minimalist%20design%2C%20clean%20and%20professional%20look%2C%20suitable%20for%20e-commerce%20website%20hero%20section%2C%20high%20quality%20digital%20art&width=1280&height=400&seq=hero123&orientation=landscape'); background-size: cover; background-position: center;"
+    >
+      <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+      <div class="container mx-auto px-4 py-16 relative z-10">
+        <div class="max-w-lg">
+          <h1 class="text-4xl font-bold text-white mb-4">
+            Find What You Think Is Interesting
+          </h1>
+          <p class="text-white text-lg mb-8">
+            Discover the latest trends with powerful performance and sleek
+            designs.
+          </p>
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8 flex-1">
+      <!-- Recommended Products -->
+      <section class="mb-12">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-xl font-semibold text-gray-800">
+            Recommended SmartTech
+          </h2>
+          <a
+            href="#"
+            class="text-sm text-primary hover:underline flex items-center"
+          >
+            View All
+            <i class="ri-arrow-right-s-line ml-1"></i>
+          </a>
+        </div>
+
+        <div
+          id="recommended-products"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          <!-- Products will be loaded here -->
+          <div class="animate-pulse bg-white rounded-lg shadow p-4 h-96"></div>
+          <div class="animate-pulse bg-white rounded-lg shadow p-4 h-96"></div>
+          <div class="animate-pulse bg-white rounded-lg shadow p-4 h-96"></div>
+        </div>
+      </section>
+
+      <!-- Best Selling Products -->
+      <section class="mb-12">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-xl font-semibold text-gray-800">
+            Best Selling Electronics
+          </h2>
+          <a
+            href="#"
+            class="text-sm text-primary hover:underline flex items-center"
+          >
+            View All
+            <i class="ri-arrow-right-s-line ml-1"></i>
+          </a>
+        </div>
+
+        <div
+          id="bestselling-products"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          <!-- Products will be loaded here -->
+          <div class="animate-pulse bg-white rounded-lg shadow p-4 h-96"></div>
+          <div class="animate-pulse bg-white rounded-lg shadow p-4 h-96"></div>
+          <div class="animate-pulse bg-white rounded-lg shadow p-4 h-96"></div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-primary text-white">
+      <div class="container mx-auto px-4 py-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Support</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-white/80 hover:text-white">Help</a>
+              </li>
+              <li>
+                <a href="#" class="text-white/80 hover:text-white"
+                  >Order Status</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-white/80 hover:text-white">Returns</a>
+              </li>
+              <li>
+                <a href="#" class="text-white/80 hover:text-white"
+                  >Contact Us</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Company</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-white/80 hover:text-white">About</a>
+              </li>
+              <li>
+                <a href="#" class="text-white/80 hover:text-white"
+                  >Terms of Use</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-white/80 hover:text-white"
+                  >Privacy Policy</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Contact</h3>
+            <ul class="space-y-2">
+              <li class="flex items-center">
+                <i
+                  class="ri-mail-line mr-2 w-5 h-5 flex items-center justify-center"
+                ></i>
+                <span>support@smarttech.com</span>
+              </li>
+              <li class="flex items-center">
+                <i
+                  class="ri-phone-line mr-2 w-5 h-5 flex items-center justify-center"
+                ></i>
+                <span>(+62) 123-456-7890</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Social Media</h3>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30"
+              >
+                <i class="ri-instagram-line text-white"></i>
+              </a>
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30"
+              >
+                <i class="ri-facebook-fill text-white"></i>
+              </a>
+              <a
+                href="#"
+                class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30"
+              >
+                <i class="ri-twitter-x-line text-white"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-white/20 mt-8 pt-6 text-center text-sm">
+          <p>© 2025 SmartTech. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Product Detail Modal -->
+    <div id="product-modal" class="fixed inset-0 z-50 hidden">
+      <div
+        class="absolute inset-0 bg-black bg-opacity-50"
+        id="modal-overlay"
+      ></div>
+      <div
+        class="relative z-10 bg-white rounded-lg max-w-4xl mx-auto mt-20 max-h-[80vh] overflow-auto"
+      >
+        <div class="p-6">
+          <button
+            id="close-modal"
+            class="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+          >
+            <i class="ri-close-line text-2xl"></i>
+          </button>
+          <div
+            id="product-detail-content"
+            class="grid grid-cols-1 md:grid-cols-2 gap-8"
+          >
+            <!-- Product detail will be loaded here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div
+      id="cart-sidebar"
+      class="fixed top-0 right-0 h-full w-full md:w-96 bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-40"
+    >
+      <div class="flex flex-col h-full">
+        <div class="p-4 border-b flex items-center justify-between">
+          <h2 class="text-xl font-semibold">Shopping Cart</h2>
+          <button id="close-cart" class="text-gray-500 hover:text-gray-700">
+            <i class="ri-close-line text-2xl"></i>
+          </button>
+        </div>
+
+        <div id="cart-items" class="flex-1 overflow-auto p-4">
+          <!-- Cart items will be loaded here -->
+          <div
+            id="empty-cart"
+            class="flex flex-col items-center justify-center h-full"
+          >
+            <i class="ri-shopping-cart-line text-6xl text-gray-300 mb-4"></i>
+            <p class="text-gray-500">Your cart is empty</p>
+            <button
+              id="start-shopping"
+              class="mt-4 bg-primary text-white px-4 py-2 rounded-button hover:bg-primary/90 transition whitespace-nowrap"
+            >
+              Start Shopping
+            </button>
+          </div>
+        </div>
+
+        <div class="p-4 border-t">
+          <div class="flex justify-between mb-4">
+            <span class="font-medium">Subtotal:</span>
+            <span id="cart-subtotal" class="font-semibold">$0.00</span>
+          </div>
+          <button
+            id="checkout-btn"
+            class="w-full bg-primary text-white py-3 rounded-button font-medium hover:bg-primary/90 transition disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
+          >
+            Proceed to Checkout
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="fixed inset-0 z-50 hidden">
+      <div
+        class="absolute inset-0 bg-black bg-opacity-50"
+        id="checkout-overlay"
+      ></div>
+      <div
+        class="relative z-10 bg-white rounded-lg max-w-4xl mx-auto mt-10 max-h-[90vh] overflow-auto"
+      >
+        <div class="p-6">
+          <button
+            id="close-checkout"
+            class="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+          >
+            <i class="ri-close-line text-2xl"></i>
+          </button>
+          <h2 class="text-2xl font-semibold mb-6">Checkout</h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="text-lg font-medium mb-4">Shipping Information</h3>
+              <form id="shipping-form" class="space-y-4">
+                <div class="grid grid-cols-2 gap-4">
+                  <div>
+                    <label
+                      for="first-name"
+                      class="block text-sm font-medium text-gray-700 mb-1"
+                      >First Name</label
+                    >
+                    <input
+                      type="text"
+                      id="first-name"
+                      class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label
+                      for="last-name"
+                      class="block text-sm font-medium text-gray-700 mb-1"
+                      >Last Name</label
+                    >
+                    <input
+                      type="text"
+                      id="last-name"
+                      class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label
+                    for="email"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                    >Email</label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label
+                    for="address"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                    >Address</label
+                  >
+                  <input
+                    type="text"
+                    id="address"
+                    class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"
+                    required
+                  />
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                  <div>
+                    <label
+                      for="city"
+                      class="block text-sm font-medium text-gray-700 mb-1"
+                      >City</label
+                    >
+                    <input
+                      type="text"
+                      id="city"
+                      class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label
+                      for="postal-code"
+                      class="block text-sm font-medium text-gray-700 mb-1"
+                      >Postal Code</label
+                    >
+                    <input
+                      type="text"
+                      id="postal-code"
+                      class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label
+                    for="country"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                    >Country</label
+                  >
+                  <div class="relative">
+                    <select
+                      id="country"
+                      class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary appearance-none pr-8"
+                      required
+                    >
+                      <option value="">Select Country</option>
+                      <option value="US">United States</option>
+                      <option value="CA">Canada</option>
+                      <option value="UK">United Kingdom</option>
+                      <option value="AU">Australia</option>
+                      <option value="ID">Indonesia</option>
+                    </select>
+                    <div
+                      class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none"
+                    >
+                      <i class="ri-arrow-down-s-line text-gray-400"></i>
+                    </div>
+                  </div>
+                </div>
+              </form>
+
+              <h3 class="text-lg font-medium mt-8 mb-4">Payment Method</h3>
+              <div class="space-y-3">
+                <label
+                  class="flex items-center space-x-3 p-3 border border-gray-300 rounded cursor-pointer hover:border-primary"
+                >
+                  <input
+                    type="radio"
+                    name="payment"
+                    value="credit-card"
+                    class="w-4 h-4 text-primary"
+                    checked
+                  />
+                  <span>Credit Card</span>
+                  <div class="ml-auto flex space-x-2">
+                    <i class="ri-visa-fill text-blue-700 text-xl"></i>
+                    <i class="ri-mastercard-fill text-orange-500 text-xl"></i>
+                  </div>
+                </label>
+
+                <label
+                  class="flex items-center space-x-3 p-3 border border-gray-300 rounded cursor-pointer hover:border-primary"
+                >
+                  <input
+                    type="radio"
+                    name="payment"
+                    value="paypal"
+                    class="w-4 h-4 text-primary"
+                  />
+                  <span>PayPal</span>
+                  <i class="ri-paypal-fill text-blue-600 text-xl ml-auto"></i>
+                </label>
+
+                <label
+                  class="flex items-center space-x-3 p-3 border border-gray-300 rounded cursor-pointer hover:border-primary"
+                >
+                  <input
+                    type="radio"
+                    name="payment"
+                    value="bank-transfer"
+                    class="w-4 h-4 text-primary"
+                  />
+                  <span>Bank Transfer</span>
+                  <i class="ri-bank-fill text-gray-600 text-xl ml-auto"></i>
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-medium mb-4">Order Summary</h3>
+              <div
+                id="checkout-items"
+                class="border rounded-lg divide-y max-h-64 overflow-auto"
+              >
+                <!-- Checkout items will be loaded here -->
+              </div>
+
+              <div class="mt-4 space-y-2">
+                <div class="flex justify-between">
+                  <span class="text-gray-600">Subtotal</span>
+                  <span id="checkout-subtotal">$0.00</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-gray-600">Shipping</span>
+                  <span id="checkout-shipping">$10.00</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-gray-600">Tax</span>
+                  <span id="checkout-tax">$0.00</span>
+                </div>
+                <div class="flex justify-between font-semibold pt-2 border-t">
+                  <span>Total</span>
+                  <span id="checkout-total">$10.00</span>
+                </div>
+              </div>
+
+              <button
+                id="place-order-btn"
+                class="w-full bg-primary text-white py-3 rounded-button font-medium mt-6 hover:bg-primary/90 transition whitespace-nowrap"
+              >
+                Place Order
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Order Confirmation Modal -->
+    <div id="confirmation-modal" class="fixed inset-0 z-50 hidden">
+      <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+      <div
+        class="relative z-10 bg-white rounded-lg max-w-md mx-auto mt-20 p-6 text-center"
+      >
+        <div
+          class="w-16 h-16 mx-auto mb-4 bg-green-100 rounded-full flex items-center justify-center"
+        >
+          <i class="ri-check-line text-3xl text-primary"></i>
+        </div>
+        <h2 class="text-2xl font-semibold mb-2">Order Confirmed!</h2>
+        <p class="text-gray-600 mb-6">
+          Your order has been placed successfully. We've sent you an email with
+          all the details.
+        </p>
+        <div class="bg-gray-100 rounded p-4 mb-6">
+          <p class="text-sm text-gray-600 mb-1">Order Number:</p>
+          <p id="order-number" class="font-semibold">SMT-25062023-1234</p>
+        </div>
+        <button
+          id="continue-shopping"
+          class="w-full bg-primary text-white py-3 rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap"
+        >
+          Continue Shopping
+        </button>
+      </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div
+      id="toast"
+      class="fixed bottom-4 right-4 bg-white shadow-lg rounded-lg p-4 flex items-center z-50 transform translate-y-16 opacity-0 transition-all duration-300 max-w-xs"
+    >
+      <div
+        id="toast-icon"
+        class="w-8 h-8 rounded-full flex items-center justify-center mr-3"
+      >
+        <i id="toast-icon-i" class="ri-check-line text-white"></i>
+      </div>
+      <div>
+        <h3 id="toast-title" class="font-medium text-gray-900">Success</h3>
+        <p id="toast-message" class="text-sm text-gray-600">
+          Item added to cart
+        </p>
+      </div>
+    </div>
+
+    <script id="api-service">
+      document.addEventListener("DOMContentLoaded", function () {
+        // Fetch all products
+        fetchProducts();
+      });
+
+      async function fetchProducts() {
+        try {
+          const response = await fetch("https://fakestoreapi.com/products");
+          const products = await response.json();
+
+          // Filter electronics for recommended section
+          const electronics = products
+            .filter((product) => product.category === "electronics")
+            .slice(0, 3);
+
+          // Get best selling products (using price as a proxy for popularity)
+          const bestSelling = [...products]
+            .sort((a, b) => b.rating.rate - a.rating.rate)
+            .slice(0, 3);
+
+          // Render products
+          renderProducts("recommended-products", electronics);
+          renderProducts("bestselling-products", bestSelling);
+        } catch (error) {
+          console.error("Error fetching products:", error);
+        }
+      }
+
+      async function fetchProductById(id) {
+        try {
+          const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+          return await response.json();
+        } catch (error) {
+          console.error("Error fetching product:", error);
+          return null;
+        }
+      }
+
+      
+      async function fetchProductById(id) {
+        try {
+          const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+          return await response.json();
+        } catch (error) {
+          console.error("Error fetching product:", error);
+          return null;
+        }
+      }
+    </script>
+
+    <script id="product-renderer">
+      function renderProducts(containerId, products) {
+        const container = document.getElementById(containerId);
+        container.innerHTML = "";
+
+        products.forEach((product) => {
+          const productCard = createProductCard(product);
+          container.appendChild(productCard);
+        });
+      }
+
+      function createProductCard(product) {
+        const card = document.createElement("div");
+        card.className =
+          "product-card bg-white rounded-lg shadow overflow-hidden flex flex-col";
+
+        // Format price to IDR
+        const price = new Intl.NumberFormat("id-ID", {
+          style: "currency",
+          currency: "IDR",
+          minimumFractionDigits: 0,
+        }).format(product.price * 15000); // Convert USD to IDR (approximate)
+
+        // Truncate description
+        const shortDesc =
+          product.description.length > 100
+            ? product.description.substring(0, 100) + "..."
+            : product.description;
+
+        card.innerHTML = `
+                      <div class="p-4 flex-1 flex flex-col">
+                          <div class="h-48 mb-4 flex items-center justify-center bg-gray-100 rounded">
+                              <img src="${product.image}" alt="${product.title}" class="h-full object-contain object-top">
+                          </div>
+                          <h3 class="text-lg font-medium mb-2 line-clamp-2 h-14">${product.title}</h3>
+                          <p class="text-gray-600 text-sm mb-4 flex-1">${shortDesc}</p>
+                          <div class="flex items-center justify-between mt-auto">
+                              <span class="text-lg font-semibold">${price}</span>
+                              <div class="flex space-x-2">
+                                  <button class="view-detail text-primary hover:text-primary/80 px-3 py-1 rounded border border-primary hover:bg-primary/5 transition whitespace-nowrap" data-id="${product.id}">
+                                      View Detail
+                                  </button>
+                                  <button class="add-to-cart bg-primary hover:bg-primary/90 text-white px-3 py-1 rounded-button transition whitespace-nowrap" data-id="${product.id}">
+                                      Add to Cart
+                                  </button>
+                              </div>
+                          </div>
+                      </div>
+                  `;
+
+        // Add event listeners
+        card.querySelector(".view-detail").addEventListener("click", () => {
+          openProductDetail(product.id);
+        });
+
+        card.querySelector(".add-to-cart").addEventListener("click", () => {
+          addToCart(product);
+          showToast("Success", "Item added to cart", "success");
+        });
+
+        return card;
+      }
+
+      async function openProductDetail(productId) {
+        const product = await fetchProductById(productId);
+        if (!product) return;
+
+        const modal = document.getElementById("product-modal");
+        const content = document.getElementById("product-detail-content");
+
+        // Format price to IDR
+        const price = new Intl.NumberFormat("id-ID", {
+          style: "currency",
+          currency: "IDR",
+          minimumFractionDigits: 0,
+        }).format(product.price * 15000);
+
+        content.innerHTML = `
+                      <div class="flex items-center justify-center bg-gray-100 rounded-lg p-4 h-80">
+                          <img src="${product.image}" alt="${product.title}" class="max-h-full object-contain">
+                      </div>
+                      <div>
+                          <h2 class="text-2xl font-semibold mb-2">${product.title}</h2>
+                          <div class="flex items-center mb-4">
+                              <div class="flex text-yellow-400 mr-2">
+                                  ${renderStarRating(product.rating.rate)}
+                              </div>
+                              <span class="text-gray-600 text-sm">(${product.rating.count} reviews)</span>
+                          </div>
+                          <p class="text-3xl font-bold mb-4">${price}</p>
+                          <p class="text-gray-700 mb-6">${product.description}</p>
+                          <div class="mb-6">
+                              <h3 class="font-medium mb-2">Quantity</h3>
+                              <div class="flex items-center">
+                                  <button class="quantity-btn decrease w-8 h-8 flex items-center justify-center border border-gray-300 rounded-l text-gray-600 hover:bg-gray-100">
+                                      <i class="ri-subtract-line"></i>
+                                  </button>
+                                  <input type="number" class="quantity-input w-12 h-8 border-y border-gray-300 text-center" value="1" min="1" max="99">
+                                  <button class="quantity-btn increase w-8 h-8 flex items-center justify-center border border-gray-300 rounded-r text-gray-600 hover:bg-gray-100">
+                                      <i class="ri-add-line"></i>
+                                  </button>
+                              </div>
+                          </div>
+                          <button class="modal-add-to-cart w-full bg-primary hover:bg-primary/90 text-white py-3 rounded-button font-medium transition whitespace-nowrap" data-id="${product.id}">
+                              Add to Cart
+                          </button>
+                      </div>
+                  `;
+
+        // Add event listeners
+        const quantityInput = content.querySelector(".quantity-input");
+        content.querySelector(".decrease").addEventListener("click", () => {
+          if (quantityInput.value > 1) {
+            quantityInput.value = parseInt(quantityInput.value) - 1;
+          }
+        });
+
+        content.querySelector(".increase").addEventListener("click", () => {
+          if (quantityInput.value < 99) {
+            quantityInput.value = parseInt(quantityInput.value) + 1;
+          }
+        });
+
+        content.querySelector(".modal-add-to-cart").addEventListener("click", () => {
+          const quantity = parseInt(quantityInput.value);
+          addToCart(product, quantity);
+          showToast("Success", `${quantity} item(s) added to cart`, "success");
+          closeProductModal();
+        });
+
+        modal.classList.remove("hidden");
+      }
+
+      function renderStarRating(rating) {
+        const fullStars = Math.floor(rating);
+        const halfStar = rating % 1 >= 0.5;
+        const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+
+        let stars = "";
+
+        for (let i = 0; i < fullStars; i++) {
+          stars += '<i class="ri-star-fill"></i>';
+        }
+
+        if (halfStar) {
+          stars += '<i class="ri-star-half-fill"></i>';
+        }
+
+        for (let i = 0; i < emptyStars; i++) {
+          stars += '<i class="ri-star-line"></i>';
+        }
+
+        return stars;
+      }
+    </script>
+
+    <script id="cart-manager">
+      // Cart state
+      let cart = [];
+
+      function addToCart(product, quantity = 1) {
+        const existingItem = cart.find((item) => item.id === product.id);
+
+        if (existingItem) {
+          existingItem.quantity += quantity;
+        } else {
+          cart.push({
+            id: product.id,
+            title: product.title,
+            price: product.price,
+            image: product.image,
+            quantity: quantity,
+          });
+        }
+
+        updateCartUI();
+      }
+
+      function removeFromCart(productId) {
+        cart = cart.filter((item) => item.id !== productId);
+        updateCartUI();
+      }
+
+      function updateCartQuantity(productId, quantity) {
+        const item = cart.find((item) => item.id === productId);
+        if (item) {
+          item.quantity = quantity;
+          updateCartUI();
+        }
+      }
+
+      function updateCartUI() {
+        const cartCount = document.getElementById("cart-count");
+        const cartItems = document.getElementById("cart-items");
+        const emptyCart = document.getElementById("empty-cart");
+        const cartSubtotal = document.getElementById("cart-subtotal");
+        const checkoutBtn = document.getElementById("checkout-btn");
+
+        // Update cart count
+        const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+        cartCount.textContent = totalItems;
+
+        // Update cart items
+        if (cart.length === 0) {
+          emptyCart.classList.remove("hidden");
+          cartItems.innerHTML = "";
+          emptyCart.appendChild(document.getElementById("empty-cart"));
+          checkoutBtn.disabled = true;
+        } else {
+          emptyCart.classList.add("hidden");
+          cartItems.innerHTML = "";
+
+          cart.forEach((item) => {
+            const cartItem = document.createElement("div");
+            cartItem.className = "flex items-center py-3 border-b last:border-b-0";
+
+            // Format price to IDR
+            const price = new Intl.NumberFormat("id-ID", {
+              style: "currency",
+              currency: "IDR",
+              minimumFractionDigits: 0,
+            }).format(item.price * 15000);
+
+            cartItem.innerHTML = `
+                              <div class="w-16 h-16 bg-gray-100 rounded flex items-center justify-center mr-3">
+                                  <img src="${item.image}" alt="${item.title}" class="max-h-full object-contain">
+                              </div>
+                              <div class="flex-1">
+                                  <h4 class="text-sm font-medium line-clamp-1">${item.title}</h4>
+                                  <p class="text-primary font-semibold">${price}</p>
+                                  <div class="flex items-center mt-2">
+                                      <button class="cart-quantity-btn decrease w-6 h-6 flex items-center justify-center border border-gray-300 rounded-l text-gray-600 hover:bg-gray-100" data-id="${item.id}">
+                                          <i class="ri-subtract-line"></i>
+                                      </button>
+                                      <input type="number" class="cart-quantity-input w-8 h-6 border-y border-gray-300 text-center text-sm" value="${item.quantity}" min="1" max="99" data-id="${item.id}">
+                                      <button class="cart-quantity-btn increase w-6 h-6 flex items-center justify-center border border-gray-300 rounded-r text-gray-600 hover:bg-gray-100" data-id="${item.id}">
+                                          <i class="ri-add-line"></i>
+                                      </button>
+                                      <button class="remove-from-cart ml-3 text-red-500 hover:text-red-700" data-id="${item.id}">
+                                          <i class="ri-delete-bin-line"></i>
+                                      </button>
+                                  </div>
+                              </div>
+                          `;
+
+            cartItems.appendChild(cartItem);
+          });
+
+          // Add event listeners to cart items
+          document.querySelectorAll(".cart-quantity-btn.decrease").forEach((btn) => {
+            btn.addEventListener("click", () => {
+              const id = parseInt(btn.dataset.id);
+              const item = cart.find((item) => item.id === id);
+              if (item && item.quantity > 1) {
+                updateCartQuantity(id, item.quantity - 1);
+              }
+            });
+          });
+
+          document.querySelectorAll(".cart-quantity-btn.increase").forEach((btn) => {
+            btn.addEventListener("click", () => {
+              const id = parseInt(btn.dataset.id);
+              const item = cart.find((item) => item.id === id);
+              if (item && item.quantity < 99) {
+                updateCartQuantity(id, item.quantity + 1);
+              }
+            });
+          });
+
+          document.querySelectorAll(".cart-quantity-input").forEach((input) => {
+            input.addEventListener("change", () => {
+              const id = parseInt(input.dataset.id);
+              const quantity = parseInt(input.value);
+              if (quantity >= 1 && quantity <= 99) {
+                updateCartQuantity(id, quantity);
+              } else {
+                input.value = cart.find((item) => item.id === id).quantity;
+              }
+            });
+          });
+
+          document.querySelectorAll(".remove-from-cart").forEach((btn) => {
+            btn.addEventListener("click", () => {
+              const id = parseInt(btn.dataset.id);
+              removeFromCart(id);
+              showToast("Removed", "Item removed from cart", "error");
+            });
+          });
+
+          checkoutBtn.disabled = false;
+        }
+
+        // Update subtotal
+        const subtotal = cart.reduce(
+          (total, item) => total + item.price * item.quantity,
+          0,
+        );
+        cartSubtotal.textContent = new Intl.NumberFormat("id-ID", {
+          style: "currency",
+          currency: "IDR",
+          minimumFractionDigits: 0,
+        }).format(subtotal * 15000);
+
+        // Update checkout items if checkout modal is open
+        if (!document.getElementById("checkout-modal").classList.contains("hidden")) {
+          updateCheckoutUI();
+        }
+      }
+    </script>
+
+    <script id="checkout-manager">
+      function updateCheckoutUI() {
+        const checkoutItems = document.getElementById("checkout-items");
+        const checkoutSubtotal = document.getElementById("checkout-subtotal");
+        const checkoutShipping = document.getElementById("checkout-shipping");
+        const checkoutTax = document.getElementById("checkout-tax");
+        const checkoutTotal = document.getElementById("checkout-total");
+
+        // Clear checkout items
+        checkoutItems.innerHTML = "";
+
+        // Add checkout items
+        cart.forEach((item) => {
+          const checkoutItem = document.createElement("div");
+          checkoutItem.className = "flex items-center p-3";
+
+          // Format price to IDR
+          const price = new Intl.NumberFormat("id-ID", {
+            style: "currency",
+            currency: "IDR",
+            minimumFractionDigits: 0,
+          }).format(item.price * 15000);
+
+          const itemTotal = new Intl.NumberFormat("id-ID", {
+            style: "currency",
+            currency: "IDR",
+            minimumFractionDigits: 0,
+          }).format(item.price * item.quantity * 15000);
+
+          checkoutItem.innerHTML = `
+                          <div class="w-12 h-12 bg-gray-100 rounded flex items-center justify-center mr-3">
+                              <img src="${item.image}" alt="${item.title}" class="max-h-full object-contain">
+                          </div>
+                          <div class="flex-1">
+                              <h4 class="text-sm font-medium line-clamp-1">${item.title}</h4>
+                              <div class="flex justify-between text-sm text-gray-600">
+                                  <span>${price} × ${item.quantity}</span>
+                                  <span>${itemTotal}</span>
+                              </div>
+                          </div>
+                      `;
+
+          checkoutItems.appendChild(checkoutItem);
+        });
+
+        // Calculate totals
+        const subtotal =
+          cart.reduce((total, item) => total + item.price * item.quantity, 0) * 15000;
+        const shipping = 150000; // Fixed shipping cost
+        const tax = subtotal * 0.1; // 10% tax
+        const total = subtotal + shipping + tax;
+
+        // Update totals
+        checkoutSubtotal.textContent = new Intl.NumberFormat("id-ID", {
+          style: "currency",
+          currency: "IDR",
+          minimumFractionDigits: 0,
+        }).format(subtotal);
+
+        checkoutShipping.textContent = new Intl.NumberFormat("id-ID", {
+          style: "currency",
+          currency: "IDR",
+          minimumFractionDigits: 0,
+        }).format(shipping);
+
+        checkoutTax.textContent = new Intl.NumberFormat("id-ID", {
+          style: "currency",
+          currency: "IDR",
+          minimumFractionDigits: 0,
+        }).format(tax);
+
+        checkoutTotal.textContent = new Intl.NumberFormat("id-ID", {
+          style: "currency",
+          currency: "IDR",
+          minimumFractionDigits: 0,
+        }).format(total);
+      }
+
+      function generateOrderNumber() {
+        const date = new Date();
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, "0");
+        const day = String(date.getDate()).padStart(2, "0");
+        const random = Math.floor(Math.random() * 10000)
+          .toString()
+          .padStart(4, "0");
+
+        return `SMT-${day}${month}${year}-${random}`;
+      }
+    </script>
+
+    <script id="ui-interactions">
+      document.addEventListener("DOMContentLoaded", function () {
+        // Cart sidebar
+        const cartIcon = document.getElementById("cart-icon");
+        const cartSidebar = document.getElementById("cart-sidebar");
+        const closeCart = document.getElementById("close-cart");
+        const startShopping = document.getElementById("start-shopping");
+
+        cartIcon.addEventListener("click", () => {
+          cartSidebar.classList.remove("translate-x-full");
+        });
+
+        closeCart.addEventListener("click", () => {
+          cartSidebar.classList.add("translate-x-full");
+        });
+
+        startShopping.addEventListener("click", () => {
+          cartSidebar.classList.add("translate-x-full");
+        });
+
+        // Product modal
+        const closeModal = document.getElementById("close-modal");
+        const modalOverlay = document.getElementById("modal-overlay");
+
+        closeModal.addEventListener("click", closeProductModal);
+        modalOverlay.addEventListener("click", closeProductModal);
+
+        // Checkout
+        const checkoutBtn = document.getElementById("checkout-btn");
+        const checkoutModal = document.getElementById("checkout-modal");
+        const closeCheckout = document.getElementById("close-checkout");
+        const checkoutOverlay = document.getElementById("checkout-overlay");
+        const placeOrderBtn = document.getElementById("place-order-btn");
+
+        checkoutBtn.addEventListener("click", () => {
+          updateCheckoutUI();
+          checkoutModal.classList.remove("hidden");
+          cartSidebar.classList.add("translate-x-full");
+        });
+
+        closeCheckout.addEventListener("click", () => {
+          checkoutModal.classList.add("hidden");
+        });
+
+        checkoutOverlay.addEventListener("click", () => {
+          checkoutModal.classList.add("hidden");
+        });
+
+        // Order confirmation
+        const confirmationModal = document.getElementById("confirmation-modal");
+        const continueShoppingBtn = document.getElementById("continue-shopping");
+        const orderNumber = document.getElementById("order-number");
+
+        placeOrderBtn.addEventListener("click", () => {
+          // Validate form
+          const form = document.getElementById("shipping-form");
+          if (form.checkValidity()) {
+            checkoutModal.classList.add("hidden");
+            orderNumber.textContent = generateOrderNumber();
+            confirmationModal.classList.remove("hidden");
+            cart = [];
+            updateCartUI();
+          } else {
+            form.reportValidity();
+          }
+        });
+
+        continueShoppingBtn.addEventListener("click", () => {
+          confirmationModal.classList.add("hidden");
+        });
+      });
+
+      function closeProductModal() {
+        const modal = document.getElementById("product-modal");
+        modal.classList.add("hidden");
+      }
+
+      function showToast(title, message, type = "success") {
+        const toast = document.getElementById("toast");
+        const toastTitle = document.getElementById("toast-title");
+        const toastMessage = document.getElementById("toast-message");
+        const toastIcon = document.getElementById("toast-icon");
+        const toastIconI = document.getElementById("toast-icon-i");
+
+        // Set content
+        toastTitle.textContent = title;
+        toastMessage.textContent = message;
+
+        // Set type
+        if (type === "success") {
+          toastIcon.className =
+            "w-8 h-8 rounded-full flex items-center justify-center mr-3 bg-primary";
+          toastIconI.className = "ri-check-line text-white";
+        } else if (type === "error") {
+          toastIcon.className =
+            "w-8 h-8 rounded-full flex items-center justify-center mr-3 bg-red-500";
+          toastIconI.className = "ri-close-line text-white";
+        } else if (type === "warning") {
+          toastIcon.className =
+            "w-8 h-8 rounded-full flex items-center justify-center mr-3 bg-yellow-500";
+          toastIconI.className = "ri-alert-line text-white";
+        } else if (type === "info") {
+          toastIcon.className =
+            "w-8 h-8 rounded-full flex items-center justify-center mr-3 bg-blue-500";
+          toastIconI.className = "ri-information-line text-white";
+        }
+
+        // Show toast
+        toast.classList.remove("translate-y-16", "opacity-0");
+
+        // Hide toast after 3 seconds
+        setTimeout(() => {
+          toast.classList.add("translate-y-16", "opacity-0");
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>

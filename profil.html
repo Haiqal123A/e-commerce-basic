@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SmartThink - Profile</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#4CAF50", secondary: "#2E7D32" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    />
+  </head>
+  <body class="bg-gray-50 min-h-screen flex flex-col">
+    <header class="sticky top-0 bg-white shadow-sm z-50">
+      <div
+        class="container mx-auto px-4 py-3 flex items-center justify-between"
+      >
+        <a href="home.html" class="text-2xl font-['Pacifico'] text-primary"
+          >SmartThink</a
+        >
+        <div class="hidden md:flex items-center flex-1 max-w-xl mx-4 relative">
+          <input
+            type="text"
+            placeholder="Search products, brands or categories..."
+            class="w-full py-2 px-4 pr-10 border border-gray-200 rounded focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary text-sm"
+          />
+          <button
+            class="absolute right-3 w-6 h-6 flex items-center justify-center text-gray-400"
+          >
+            <i class="ri-search-line"></i>
+          </button>
+        </div>
+        <div class="flex items-center gap-4">
+          <button
+            class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700"
+          >
+            <i class="ri-search-line ri-lg"></i>
+          </button>
+
+
+         <a href="login.html">
+  <button class="w-10 h-10 flex items-center justify-center text-gray-700 relative">
+    <i class="ri-user-line ri-lg"></i>
+  </button>
+</a>
+
+          
+          <div class="relative" id="cart-dropdown">
+            <button
+              class="w-10 h-10 flex items-center justify-center text-gray-700 relative"
+              id="cart-button"
+            >
+              <i class="ri-shopping-cart-line ri-lg"></i>
+              <span
+                class="absolute -top-1 -right-1 bg-primary text-white text-xs w-5 h-5 flex items-center justify-center rounded-full"
+                >0</span
+              >
+            </button>
+            <div
+              class="hidden absolute right-0 top-full mt-2 w-80 bg-white rounded-lg shadow-lg z-50 overflow-hidden"
+              id="cart-panel"
+            >
+              <div class="p-4 max-h-96 overflow-auto" id="cart-items">
+                <div class="text-center text-gray-500 py-8">
+                  Your cart is empty
+                </div>
+              </div>
+              <div class="border-t p-4 bg-gray-50">
+                <div class="flex justify-between text-sm mb-4">
+                  <span class="font-medium">Total:</span>
+                  <span class="font-bold text-primary" id="cart-total"
+                    >Rp 0</span
+                  >
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                  <button
+                    class="bg-white border border-primary text-primary hover:bg-primary/5 py-2 px-4 rounded-button !rounded-button whitespace-nowrap text-sm"
+                    id="view-cart-btn"
+                  >
+                  <a href="keranjang.html">Lihat Keranjang</a>
+                  </button>
+                  <button
+                    class="bg-primary hover:bg-primary/90 text-white py-2 px-4 rounded-button !rounded-button whitespace-nowrap text-sm"
+                    id="checkout-btn"
+                  >
+                    Checkout
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="border-t border-gray-100 bg-white">
+        <div class="container mx-auto px-4">
+          <ul
+            class="flex overflow-x-auto space-x-6 py-3 text-sm font-medium text-gray-600 no-scrollbar"
+          >
+            <li class="whitespace-nowrap">
+              <a href="#" class="flex items-center text-primary">
+                <i class="ri-home-line mr-1"></i> Home
+              </a>
+            </li>
+            <li class="whitespace-nowrap">
+              <a href="#" class="flex items-center hover:text-primary">
+                <i class="ri-bookmark-line mr-1"></i> Bookmarks
+              </a>
+            </li>
+            <li class="whitespace-nowrap">
+              <a href="#" class="flex items-center hover:text-primary">
+                <i class="ri-filter-line mr-1"></i> Filter
+              </a>
+            </li>
+            <li class="whitespace-nowrap">
+              <a href="#" class="flex items-center hover:text-primary">
+                <i class="ri-chat-1-line mr-1"></i> Chat
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!-- Main Form -->
+    <main class="max-w-2xl mx-auto py-8 px-4 flex-1">
+      <h1 class="text-2xl font-semibold mb-6 text-gray-800">
+        Basic Information
+      </h1>
+
+      <form class="space-y-4">
+        <div>
+          <input
+            type="email"
+            placeholder="Email Addresses"
+            class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+          />
+        </div>
+
+        <div>
+          <input
+            type="text"
+            placeholder="First Name"
+            class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+          />
+        </div>
+
+        <div>
+          <input
+            type="text"
+            placeholder="Last Name"
+            class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+          />
+        </div>
+
+        <div class="flex">
+          <div class="relative">
+            <select
+              class="appearance-none w-32 p-3 pr-8 border border-gray-300 rounded-l focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary bg-white"
+            >
+              <option>+1</option>
+              <option>+44</option>
+              <option>+61</option>
+              <option>+86</option>
+            </select>
+            <div
+              class="absolute inset-y-0 right-2 flex items-center pointer-events-none"
+            >
+              <div
+                class="w-4 h-4 flex items-center justify-center text-gray-500"
+              >
+                <i class="ri-arrow-down-s-line"></i>
+              </div>
+            </div>
+          </div>
+          <input
+            type="tel"
+            placeholder="Phone"
+            class="flex-1 p-3 border border-gray-300 border-l-0 rounded-r focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+          />
+        </div>
+
+        <div class="relative">
+          <input
+            type="text"
+            placeholder="Birthday"
+            onfocus="(this.type='date')"
+            onblur="if(!this.value)this.type='text'"
+            class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+          />
+          <div
+            class="absolute inset-y-0 right-3 flex items-center pointer-events-none"
+          >
+            <div class="w-5 h-5 flex items-center justify-center text-gray-500">
+              <i class="ri-calendar-line"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-2 pt-2">
+          <h2 class="font-medium text-gray-800">How big are those feet?</h2>
+          <p class="text-sm text-gray-500">
+            Share your shoe size. We can add others letter.
+          </p>
+          <div class="relative">
+            <select
+              class="appearance-none w-full p-3 pr-10 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary bg-white"
+            >
+              <option>Select Size</option>
+              <option>US 6</option>
+              <option>US 7</option>
+              <option>US 8</option>
+              <option>US 9</option>
+              <option>US 10</option>
+              <option>US 11</option>
+              <option>US 12</option>
+            </select>
+            <div
+              class="absolute inset-y-0 right-3 flex items-center pointer-events-none"
+            >
+              <div
+                class="w-5 h-5 flex items-center justify-center text-gray-500"
+              >
+                <i class="ri-arrow-down-s-line"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <input
+            type="text"
+            placeholder="State Address"
+            class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+          />
+        </div>
+
+        <div>
+          <input
+            type="text"
+            placeholder="Apartment/Unit/State"
+            class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+          />
+        </div>
+
+        <div>
+          <input
+            type="text"
+            placeholder="City"
+            class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+          />
+        </div>
+
+        <div class="relative">
+          <select
+            class="appearance-none w-full p-3 pr-10 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary bg-white"
+          >
+            <option>Choose State</option>
+            <option>Alabama</option>
+            <option>Alaska</option>
+            <option>Arizona</option>
+            <option>California</option>
+            <option>Colorado</option>
+            <option>Florida</option>
+            <option>New York</option>
+            <option>Texas</option>
+          </select>
+          <div
+            class="absolute inset-y-0 right-3 flex items-center pointer-events-none"
+          >
+            <div class="w-5 h-5 flex items-center justify-center text-gray-500">
+              <i class="ri-arrow-down-s-line"></i>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <input
+            type="text"
+            placeholder="Zip Code"
+            class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+          />
+        </div>
+
+        <div class="pt-4">
+          <button
+            type="submit"
+            class="w-full bg-primary text-white py-3 px-6 rounded-button font-medium hover:bg-primary/90 transition-colors whitespace-nowrap"
+          >
+            Save Information
+          </button>
+        </div>
+      </form>
+    </main>
+
+    <!-- Footer -->
+ <footer class="bg-primary text-white mt-12">
+      <div class="container mx-auto px-4 py-10">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h3 class="font-bold text-lg mb-4">Support</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-white/80 hover:text-white">Help</a>
+              </li>
+              <li>
+                <a href="#" class="text-white/80 hover:text-white"
+                  >Order Status</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-white/80 hover:text-white">Returns</a>
+              </li>
+              <li>
+                <a href="#" class="text-white/80 hover:text-white"
+                  >Contact Us</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg mb-4">Company</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-white/80 hover:text-white">About</a>
+              </li>
+              <li>
+                <a href="#" class="text-white/80 hover:text-white"
+                  >Terms of Use</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-white/80 hover:text-white"
+                  >Privacy Policy</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg mb-4">Contact</h3>
+            <ul class="space-y-2">
+              <li class="flex items-center text-white/80">
+                <i class="ri-mail-line mr-2"></i> support@smarttech.com
+              </li>
+              <li class="flex items-center text-white/80">
+                <i class="ri-phone-line mr-2"></i> +1 (555) 123-4567
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg mb-4">Social Media</h3>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20"
+              >
+                <i class="ri-instagram-line text-white"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20"
+              >
+                <i class="ri-facebook-line text-white"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20"
+              >
+                <i class="ri-twitter-line text-white"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="border-t border-white/20 mt-8 pt-6 text-center text-white/60 text-sm"
+        >
+          &copy; 2025 SmartTech. All rights reserved.
+        </div>
+      </div>
+    </footer>
+    <!-- Product Detail Modal -->
+    <div
+      id="product-modal"
+      class="fixed inset-0 z-50 bg-black/50 flex items-center justify-center hidden"
+    >
+      <div
+        class="bg-white rounded-lg w-full max-w-4xl max-h-[90vh] overflow-auto"
+      >
+        <div class="p-6">
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="text-xl font-bold" id="modal-title">Product Detail</h3>
+            <button
+              id="close-modal"
+              class="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-gray-700"
+            >
+              <i class="ri-close-line ri-lg"></i>
+            </button>
+          </div>
+          <div id="modal-content" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Content will be loaded here -->
+          </div>
+        </div>
+      </div>
+    </div>
+    </footer>
+  </body>
+</html>
